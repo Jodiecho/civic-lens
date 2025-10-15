@@ -27,7 +27,7 @@
 <body>
 <!-- ADD semantic and validated HTML -->
 <!-- ADD skip to main content -->
- <a href="#main-content" class="skip-link">Skip to main content</a>
+ <a href="#main-content" class="sr-only">Skip to main content</a>
 
     <button id="theme-toggle" aria-label="Toggle light/dark mode">
       <svg width="35px" height="35px" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -64,82 +64,84 @@
 
       <section id="breaking-news">
       <h2>Breaking News</h2>
-
-      <article>
+      <div class="articles-container">
+      <article class="news-article">
         <h3>Federal Investigation Launched into Water Mismanagement in the Southwest</h3>
         <p>The Department of Justice has announced a full investigation into decades of water distribution practices affecting tribal lands and rural communities.</p>
         <video src="videos/water-management.mp4" controls></video>
       </article>
 
-      <article>
+      <article class="news-article">
         <h3>Voter Suppression Bill Faces Pushback in State Supreme Court</h3>
         <p>Civil rights advocates argue that the bill disenfranchises thousands of voters and potential voters of color and those in rural areas of the country.</p>
         <video src="videos/voter-suppression.mp4" controls></video>
       </article>
+    </div>
     </section>  
 
     <section id="featured-articles">
       <h2>Featured Articles</h2>
-        
-      <article>
+      <div class="articles-container">
+      <article class="news-article">
         <h3>The Cost of Silence: Whistleblower Stories from Inside Tech Giants</h3>
         <p>Former employees speak out about ethical breaches in data privacy and surveillance.</p>
       </article>
 
-      <article>
+      <article class="news-article">
         <h3>Unequal Justice: How Bail Systems Harm the Poor</h3>
         <p>An investigative series on cash bail and its disproportionate impact.</p>
       </article>
 
-      <article>
+      <article class="news-article">
         <h3>Invisible Work: The Lives of Migrant Caregivers</h3>
         <p>Humanizing the labor that keeps households and economies afloat.</p>
       </article>
 
-      <article>
+      <article class="news-article">
         <h3>Redlined Still: A New Map of Modern-Day Housing Discrimination</h3>
         <p>Data visualization showing systemic inequality in real estate today.</p>
       </article>
 
-      <article>
+      <article class="news-article">
         <h3>Climate Injustice: Who Pays for Pollution?</h3>
         <p>Communities of color bear the brunt of environmental damage.</p>
       </article>
 
-      <article>
+      <article class="news-article">
         <h3>Teaching Under Fire: The Fight for Inclusive Education</h3>
         <p>Teachers navigate book bans, curriculum restrictions, and culture wars.</p>
       </article> 
 
-      <article>
+      <article class="news-article">
         <h3>Food Deserts and Corporate Abandonment</h3>
         <p>Why access to nutrition is a zip code lottery.</p>
       </article>
 
-      <article>
+      <article class="news-article">
         <h3>Policing Mental Health: A Broken Response System</h3>
         <p>Examining police interactions with those in crisis.</p>
       </article>
 
-      <article>
+      <article class="news-article">
         <h3>The Disinformation Economy</h3>
         <p>Tracing profit motives behind fake news empires.</p>
       </article>
 
-      <article>
+      <article class="news-article">
         <h3>Facing the Algorithm: AI and Racial Bias</h3>
         <p>The coded inequalities that shape our lives.</p>
       </article>
 
-      <article>
+      <article class="news-article">
         <h3>The Voting Maze</h3>
         <p>A guide to understanding your rights amid changing laws.</p>
       </article>
 
-      <article>
+      <article class="news-article">
         <h3>After the Cameras Leave: Long-Term Crisis Recovery</h3>
         <p>Rebuilding trust and infrastructure in disaster-hit communities.</p>
       </article>
+    </div>
     </section>
         
     <section id="subscribe">
@@ -147,11 +149,11 @@
       <p>Receive text messages with the news you want to know.</p>
         <form action="https://wp.zybooks.com/form-viewer.php" method="post" aria-labelledby="subscribe-heading">
   
-        <label for="name">Name</label>
-    <input type="text" id="name" name="name" required aria-required="true" placeholder="Your full name">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required aria-required="true" placeholder="Your full name">
 
-    <label for="mobile">Mobile</label>
-    <input type="tel" id="mobile" name="mobile" required aria-required="true" placeholder="1234567890" pattern="[0-9]{10}" title="Format: 1234567890">
+      <label for="mobile">Mobile</label>
+      <input type="tel" id="mobile" name="mobile" required aria-required="true" placeholder="1234567890" pattern="[0-9]{10}" title="Format: 1234567890">
 
     <fieldset>
       <legend>Notification Preferences</legend>
@@ -199,14 +201,13 @@
       
 <footer id="social">
     <h2>Follow Us</h2>
-    <ul>
-      <li><a href="#">Twitter/X</a></li>
-      <li><a href="#">Instagram</a></li>
-      <li><a href="#">YouTube</a></li>
-      <li><a href="#">TikTok</a></li>
-      <li><a href="#">LinkedIn</a></li>
-    </ul>
-      
+      <div class="social-links-container">
+        <a href="#" class="btn">Twitter/X</a>
+        <a href="#" class="btn">Instagram</a>
+        <a href="#" class="btn">YouTube</a>
+        <a href="#" class="btn">TikTok</a>
+        <a href="#" class="btn">LinkedIn</a>
+      </div>
       <p>&copy; 2025 Civic Lens. All rights reserved.</p>
 </footer>
         

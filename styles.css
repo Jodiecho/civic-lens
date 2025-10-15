@@ -87,65 +87,115 @@ body.dark-mode {
 }
 
 /* ///ADD/// Skip Link Styles */
-.skip-link {
+.sr-only {
   position: absolute;
-  top: -40px;
-  left: 0;
-  background: #000;
-  color: #fff;
-  padding: 8px 16px;
-  z-index: 100;
-  text-decoration: none;
-  transition: top 0.3s;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
-.skip-link:focus {
-  top: 0;
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 1rem;
+  padding: 0.5rem;
+  background: var(--news-flash);
+  color: var(--watchdog-white);
+  border-radius: 0.5rem;
 }
+
 
 /* ///ADD/// Navigation Styles */
 .mobile-nav {
-  display: flex;
-  flex-direction: column;
+  position: relative;
 }
-.menu-button {
-  display: inline-block;
-  background: var(--news-flash);
+
+.mobile-nav ul {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  margin-top: 0.5rem;
+}
+
+.menu li a,.menu-button,.btn {
+  width: 100%;
+  background-color: var(--news-flash);
   color: var(--watchdog-white);
-  padding: 8px 12px;
+  text-align: center;
+  display: block;
+  border: 0.1rem solid var(--news-flash);
   cursor: pointer;
 }
-.menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: none;
-  background: var(--news-flash);
-  color: var(--watchdog-white);
+
+.menu li a,.menu-button {
+  padding: 0.5rem 0;
+  border: 0.1rem solid var(--news-flash);
 }
-#menu-toggle:checked + .menu-button + .menu {
+
+.menu li {
+  border-bottom: 1px solid var(--blue-bulletin);
+}
+
+.menu li a:hover,.menu-button:hover,.btn:hover {
+  background-color: var(--blue-bulletin);
+  transition: 0.7s ease;
+  border: 0.1rem solid var(--news-flash);
+}
+
+#menu-toggle:checked ~ .menu {
   display: block;
 }
-.menu li a {
-  display: block;
-  padding: 8px;
-  text-decoration: none;
-  color: var(--watchdog-white);
+
+#menu-toggle:checked ~ .menu li a,
+#menu-toggle:checked ~ .menu-button {
+  padding: 0.5rem 0;
+  border: 0.1rem solid var(--news-flash);
 }
-.menu li a:hover,
-.menu li a:focus {
-  background-color: #eee;
-}
+
 
 
 /* ///ADD/// Global Layout Styles */
 body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--truth-text);
+  background-color: var(--watchdog-white);
+  font-size: 16px;
   margin: 0;
-  font-family: var(--font-body)
+  padding: 0;
+  width: 100%;
 }
-main {
-  padding: 1rem;
+
+.max-width-container,#main,#social {
+  max-width: 1200px;
+  margin: 0 auto;
 }
-header, footer {
+
+header {
+  background-color: var(--blue-bulletin);
+  padding: 2rem 2rem 1rem 2rem;
+}
+
+header p,
+.menu-button {
+  color: var(--watchdog-white);
+  margin-bottom: 0.5rem;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+}
+
+footer {
   padding: 1rem;
   background-color: var(--blue-bulletin);
   color: var(--watchdog-white)
@@ -153,51 +203,294 @@ header, footer {
 
 
 /* ///ADD/// Global Text Styles */
-h1 {
-  color: var(--watchdog-white);
-  font-size: 2rem;
+h1,h2,h3 {
   font-family: var(--font-heading);
-  margin-left: 0.5rem;
-  text-decoration: none;
+  color: var(--truth-text);
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--watchdog-white);
 }
 
 h2 {
-  color: var(--truth-text);
-  font-size: 1.5rem;
-  font-family: var(--font-heading);
-  text-decoration: none;
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 h3 {
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
+
 p {
-  font-family: var(--font-body);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+blockquote {
+  font-style: italic;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+a {
+  color: var(--watchdog-white);
   text-decoration: none;
 }
 
-/* ///ADD/// medium styles 620px */
-@media screen and (min-width: 620px) {
-  main {
-    max-width: 600px;
-    margin: 0 auto;
-  }
+input,select,textarea,button {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--blue-bulletin);
+  border-radius: 0.2rem;
+}
 
-  #menu-toggle:checked ~ .menu {
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid var(--blue-bulletin);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+
+#breaking-news h2 {
+  margin-top: 1.5rem;
+}
+
+.line-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--watchdog-white);
+  margin: 0.2rem 0 0.5rem 0;
+}
+
+.news-article .line-divider {
+  background-color: var(--story-subtitle);
+}
+
+.articles-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.news-video-container:hover,
+.news-article:hover {
+  transition: transform 0.3s ease;
+  transform: scale(1.015);
+  cursor: pointer;
+}
+
+.news-video-container,
+#alerts form {
+  padding: 1.5rem;
+  background-color: var(--news-flash);
+  border: 2px solid var(--truth-text);
+  box-shadow: var(--shadow);
+}
+
+.news-video-container h3,
+.news-video-container p {
+  color: var(--watchdog-white);
+  margin: 0;
+}
+
+video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
   display: block;
 }
+
+#featured-articles {
+  margin: 2rem 0;
 }
+
+.news-article {
+  border: 2px solid var(--story-subtitle);
+  padding: 1rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.news-article a,
+.news-article h3,
+.news-article p {
+  color: var(--truth-text);
+  margin-bottom: 0;
+}
+
+#alerts p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+#alerts form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--watchdog-white);
+  padding-bottom: 2.5rem;
+  margin: 0 1rem;
+}
+
+#alerts form legend {
+  font-size: 1.5rem;
+}
+
+.lbl-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pref-choice-container {
+  /* keeps on checked to not change in size */
+  display: flex;
+  align-items: flex-end;
+  gap: 0.4rem;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  background-color: var(--watchdog-white);
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--blue-bulletin);
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✔";
+  color: var(--watchdog-white);
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+#alerts form .btn {
+  /* I like to be as accurate as possible when selecting names 
+  in case later on a similar class ect. would be added */
+  background-color: var(--blue-bulletin);
+  font-size: 1.5rem;
+  border: 2px solid var(--truth-text);
+  border-radius: 0;
+  box-shadow: var(--shadow);
+}
+
+#alerts form .btn:hover {
+  background-color: var(--watchdog-white);
+  transition: 0.7s ease;
+  color: var(--truth-text);
+}
+
+footer {
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 2.5rem 1rem 0.5rem 1rem;
+}
+
+footer h2 {
+  color: var(--watchdog-white);
+}
+
+.social-links-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+#social .btn {
+  max-width: 86px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+footer p {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+
 
 /* ///ADD/// medium styles 620px */
 @media screen and (min-width: 620px) {
-  main {
-    max-width: 600px;
-    margin: 0 auto;
+  .articles-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem;
+    justify-content: center;
   }
+
+  .news-video-container,
+  .news-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(50% - 3.5rem);
+  }
+
+  #alerts form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .lbl-input-container {
+    width: calc(50% - 0.5rem);
+  }
+
+  fieldset {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .pref-choice-container {
+    /* calc for padding and gap */
+    width: calc(50% - 2.4rem);
+  }
+
   .menu-button {
     display: none;
+  }
+
+  #menu-toggle ~ .menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    position: relative;
+    margin-left: 0;
+    max-width: 525px;
+  }
+
+  .menu li a {
+    padding: 1rem 0.5rem;
+    text-transform: uppercase;
   }
 }
 
@@ -215,6 +508,15 @@ p {
   .menu-button {
   display: none;
   }
+
+    .news-article {
+    width: calc(33% - 3.5rem);
+  }
+
+  .pref-choice-container {
+    width: calc(33% - 2.4rem);
+  }
+  
 }
 
 /* ///ADD/// x-large styles 1024px */
