@@ -538,8 +538,8 @@ footer p {
 }
 @media (prefers-color-scheme: light) {
   body.light-mode {
-    background-color: #fff;
-    color: #000;
+    background-color: var(--watchdog-white);
+    color:var(--truth-text);
   }
 }
 
