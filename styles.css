@@ -380,7 +380,7 @@ footer a:hover {
   border: 1px solid var(--news-flash); 
 }
 
-.footerGrid { 
+.footer { 
   margin: 20px 0 40px 0; 
   display: grid; 
   grid-template-columns: repeat(4,1fr); 
@@ -436,7 +436,7 @@ input[type="checkbox"]:checked {
     grid-template-columns:1fr 1fr; 
     gap:30px; 
   }
-  .footerGrid { 
+  .footer { 
     grid-template-rows:1fr; 
     grid-template-columns:repeat(5,1fr); 
     float:left; 
